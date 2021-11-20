@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1 class="display-4">Welcome!</h1><p>You need to register or login to use this application.</p>
+    }
+    else
+    {
+        <h1 class="display-4">Welcome @User.Identity.Name!</h1><p>You are logged in, and therefore able to use the application.</p>
+    }
+</div>

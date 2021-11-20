@@ -1,0 +1,67 @@
+﻿@model FirstBLogicProject.Models.Entity.ContractItem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ContractItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="RegistrationNumber" class="control-label"></label>
+                <input asp-for="RegistrationNumber" class="form-control" />
+                <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstitutionName" class="control-label"></label>
+                <input asp-for="InstitutionName" class="form-control" />
+                <span asp-validation-for="InstitutionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label"></label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContractAdministratorName" class="control-label"></label>
+                <input asp-for="ContractAdministratorName" class="form-control" />
+                <span asp-validation-for="ContractAdministratorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advisors" class="control-label"></label>
+                <input asp-for="Advisors" class="form-control" />
+                <span asp-validation-for="Advisors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClosingDate" class="control-label"></label>
+                <input asp-for="ClosingDate" class="form-control" />
+                <span asp-validation-for="ClosingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EffectiveDate" class="control-label"></label>
+                <input asp-for="EffectiveDate" class="form-control" />
+                <span asp-validation-for="EffectiveDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

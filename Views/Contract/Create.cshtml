@@ -1,0 +1,62 @@
+﻿@model FirstBLogicProject.Models.Entity.ContractItem
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ContractItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RegistrationNumber" class="control-label">Registration Number</label>
+                <input asp-for="RegistrationNumber" class="form-control" />
+                <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstitutionName" class="control-label">Name of Institution</label>
+                <input asp-for="InstitutionName" class="form-control" />
+                <span asp-validation-for="InstitutionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label">Name of Client</label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Names of advisors (First advisor is also a contract administrator)</label>
+                <label class="control-label">Please input names separeted by ',' character</label>
+                <input asp-for="Advisors" class="form-control" />
+                <span asp-validation-for="Advisors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Closing Date of contract</label>
+                <input asp-for="ClosingDate" type="date" class="form-control" />
+                <span asp-validation-for="ClosingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Effective Date of contract</label>
+                <input asp-for="EffectiveDate" type="date" class="form-control"  />
+                <span asp-validation-for="EffectiveDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">End date of contract</label>
+                <input asp-for="EndDate" type="date" class="form-control"/>
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+                <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<FirstBLogicProject.Models.Entity.ContractItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Contracts</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-primary" /> 
+            <a class="btn btn-secondary"  asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["RNSortParm"]">Registration Number</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["InstitutionNameSortParm"]">Institution</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ClientNameSortParm"]">Name of client</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ContractAdministratorNameSortParm"]">Contract Administrator</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["AdvisorsSortParm"]">Advisors</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ClosingDateSortParm"]">Closing Date</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EffectiveDateSortParm"]">Effecitve Date</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EndDateSortParm"]">End Date</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstitutionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContractAdministratorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Advisors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClosingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EffectiveDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    <ul>
+                        <li style="display:inline-block;">
+                            <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                        </li>
+                        <li style="display:inline-block;">
+                            <a class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        </li>
+                        <li style="display:inline-block;">
+                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="text-right">
+    <form method="post" asp-controller="Contract" asp-action="Export">
+        <input class="btn btn-primary" type="submit" value="Export to CSV" />
+    </form>
+</div>
+
